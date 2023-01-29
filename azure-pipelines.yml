@@ -2,6 +2,15 @@ trigger:
 
 - '*'
 
+schedules:
+- cron: "0 * * * *"
+  displayName: Hourly build
+  branches:
+    include:
+    - failed-test
+    - main
+  always: true
+
 pool:
   vmImage: 'ubuntu-20.04'
   demands:
